@@ -1,5 +1,5 @@
 <?php
 
-echo "Hello\n";
-$version = 3.2;
-echo "this is version $version";
+echo "<h1>Hello\n</h1>";
+$version = 3.3;
+echo "<h1>this is version $version</h1>";
