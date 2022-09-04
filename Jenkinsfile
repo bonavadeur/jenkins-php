@@ -9,11 +9,11 @@ pipeline {
     }
 }
 pipeline {
-    agent {'slave-1'}
+    agent {label 'master'}
     stages {
-        stage('Slave pulling') {
+        stage('Clone') {
             steps {
-                mkdir testfolder
+                git 'https://github.com/bonavadeur/jenkins-php.git'
             }
         }
     }
