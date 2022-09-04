@@ -26,3 +26,6 @@ node ('slave-1') { // build and upload artifact to nexus
     sh 'zip code.zip ./*'
     sh 'curl -v -u admin:admin --upload-file code.zip https://cedf-202-191-58-171.ap.ngrok.io/repository/raw-hosted/code.zip'
 }
+node ('stagging-1') {
+    sh 'curl -u admin:admin https://cedf-202-191-58-171.ap.ngrok.io/repository/raw-hosted/knative.zip --output code.zip'
+}
