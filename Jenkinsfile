@@ -24,9 +24,9 @@ node ('slave-1') { // slave-1 pulls code from master
 node ('slave-1') { // build and upload artifact to nexus
     sh 'cd /home/ubuntu20/jenkins/workspace/jenkins-php-pipeline'
     sh 'zip code.zip ./*'
-    sh 'curl -v -u admin:admin --upload-file code.zip https://cedf-202-191-58-171.ap.ngrok.io/repository/raw-hosted/code.zip'
+    sh 'curl -v -u admin:admin --upload-file code.zip https://ed26-202-191-58-171.ap.ngrok.io/repository/raw-hosted/code.zip'
 }
 node ('stagging-1') {
-    sh 'curl -u admin:admin https://cedf-202-191-58-171.ap.ngrok.io/repository/raw-hosted/code.zip --output code.zip'
-    sh 'unzip code.zip code'
+    sh 'curl -u admin:admin https://ed26-202-191-58-171.ap.ngrok.io/repository/raw-hosted/code.zip --output code.zip'
+    sh 'unzip code.zip -d code'
 }
