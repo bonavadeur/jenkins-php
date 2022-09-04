@@ -27,7 +27,7 @@ node ('slave-1') { // build and upload artifact to nexus
     sh 'curl -v -u admin:admin --upload-file code.zip https://ed26-202-191-58-171.ap.ngrok.io/repository/raw-hosted/code.zip'
 }
 node ('stagging-1') {
-    sh 'curl -u admin:admin https://ed26-202-191-58-171.ap.ngrok.io/repository/raw-hosted/code.zip --output code.zip'
+    sh 'curl -u admin:admin https://ed26-202-191-58-171.ap.ngrok.io/repository/raw-hosted/code.zip --output code'
     sh 'unzip code.zip -d code'
     // sh 'docker build -t phpapp .'
     // sh 'docker rm -f phpapp'
