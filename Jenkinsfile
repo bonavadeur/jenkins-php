@@ -8,13 +8,3 @@ pipeline {
         }
     }
 }
-pipeline {
-    agent {'slave-1'}
-    stages {
-        stage('Slave pulling') {
-            steps {
-                echo "hello"
-            }
-        }
-    }
-}
