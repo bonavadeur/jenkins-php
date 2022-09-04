@@ -6,8 +6,11 @@ pipeline {
                 git 'https://github.com/bonavadeur/jenkins-php.git'
             }
         }
+    }
+    agent {'slave-1'}
+    stages {
         stage('Slave pulling') {
-            node ('slave-1') {
+            steps {
                 echo "hello"
             }
         }
