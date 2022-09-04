@@ -6,12 +6,8 @@ pipeline {
                 git 'https://github.com/bonavadeur/jenkins-php.git'
             }
         }
-    }
-}
-pipeline {
-    agent {label 'master'}
-    stages {
         stage('Clone') {
+            agent {label 'master'}
             steps {
                 git 'https://github.com/bonavadeur/jenkins-php.git'
             }
