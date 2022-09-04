@@ -6,10 +6,10 @@ pipeline {
                 git 'https://github.com/bonavadeur/jenkins-php.git'
             }
         }
-        stage('slave') {
-            agent {label 'master'}
+        stage('Slave') {
+            agent {'slave-1'}
             steps {
-                git 'https://github.com/bonavadeur/jenkins-php.git'
+                mkdir testfolder
             }
         }
     }
