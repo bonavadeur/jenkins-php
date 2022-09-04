@@ -1,17 +1,20 @@
-pipeline {
-    agent none
-    stages {
-        stage('Clone') {
-            agent {label 'master'}
-            steps {
-                git 'https://github.com/bonavadeur/jenkins-php.git'
-            }
-        }
-        stage('Slave') {
-            agent {'slave-1'}
-            steps {
-                mkdir testfolder
-            }
-        }
-    }
+// pipeline {
+//     agent none
+//     stages {
+//         stage('Clone') {
+//             agent {label 'master'}
+//             steps {
+//                 git 'https://github.com/bonavadeur/jenkins-php.git'
+//             }
+//         }
+//         stage('Slave') {
+//             agent {'slave-1'}
+//             steps {
+//                 mkdir testfolder
+//             }
+//         }
+//     }
+// }
+node (label: 'master') {
+    git 'https://github.com/bonavadeur/jenkins-php.git'
 }
