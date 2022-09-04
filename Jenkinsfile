@@ -1,7 +1,8 @@
 pipeline {
-    agent {label 'master'}
+    agent none
     stages {
         stage('Clone') {
+            agent {label 'master'}
             steps {
                 git 'https://github.com/bonavadeur/jenkins-php.git'
             }
