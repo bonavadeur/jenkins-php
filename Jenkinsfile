@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage('Slave') {
-            agent {'slave-1'}
+            agent ('slave-1')
             steps {
                 sh 'mkdir testfolder'
             }
