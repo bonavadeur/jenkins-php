@@ -31,5 +31,5 @@ node ('stagging-1') {
     sh 'unzip code.zip -d code'
     sh 'docker build -t phpapp .'
     sh 'docker rm -f phpapp'
-    sh 'docker run -d --name phpapp -p 8888 phpapp'
+    sh 'docker run -d --name phpapp -p 8888:80 phpapp'
 }
