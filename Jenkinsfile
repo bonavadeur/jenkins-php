@@ -19,5 +19,5 @@ node (label: 'master') {
     git 'https://github.com/bonavadeur/jenkins-php.git'
 }
 node ('slave-1') {
-    mkdir hello
+    git 'https://github.com/bonavadeur/jenkins-php.git'
 }
