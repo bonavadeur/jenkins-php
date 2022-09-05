@@ -1,4 +1,4 @@
 <?php
 
-$version = 5;
+$version = 6;
 echo "<h2>Hello, this is version $version</h2>";
