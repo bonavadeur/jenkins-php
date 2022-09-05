@@ -1,5 +1,5 @@
 <?php
 
-$version = 21;
+$version = 22;
 echo "<h2>Hello, this is version $version</h2>";
-header("HTTP/1.1 404 Notfound");
+http_response_code(404); exit;
