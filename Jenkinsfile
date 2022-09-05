@@ -23,12 +23,12 @@ node ('slave-1') { // slave-1 pulls code from master
 }
 node ('slave-1') { // build and upload artifact to nexus
     sh 'cd /home/ubuntu20/jenkins/workspace/jenkins-php-pipeline'
-    sh 'zip code-${BUILD_ID}.zip ./*'
-    sh 'curl -v -u admin:admin --upload-file code-${BUILD_ID}.zip https://4ef0-202-191-58-171.ap.ngrok.io/repository/raw-hosted/code-${BUILD_ID}.zip'
+    sh 'zip phpapp-${BUILD_ID}.zip ./*'
+    sh 'curl -v -u admin:admin --upload-file phpapp-${BUILD_ID}.zip https://4ef0-202-191-58-171.ap.ngrok.io/repository/raw-hosted/phpapp/phpapp-${BUILD_ID}.zip'
 }
 node ('stagging-1') {
-    sh 'curl -u admin:admin https://4ef0-202-191-58-171.ap.ngrok.io/repository/raw-hosted/code-${BUILD_ID}.zip --output code-${BUILD_ID}.zip'
-    sh 'unzip -o code-${BUILD_ID}.zip -d code'
+    sh 'curl -u admin:admin https://4ef0-202-191-58-171.ap.ngrok.io/repository/raw-hosted/phpapp/phpapp-${BUILD_ID}.zip --output phpapp-${BUILD_ID}.zip'
+    sh 'unzip -o phpapp-${BUILD_ID}.zip -d current'
     sh 'docker build -t phpapp .'
     sh 'docker rm -f phpapp'
     sh 'docker run -d --name phpapp -p 8888:80 phpapp'
