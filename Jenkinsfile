@@ -29,7 +29,9 @@ node ('slave-1') { // build and upload artifact to nexus
 node ('stagging-1') {
     sh 'curl -u admin:admin https://4ef0-202-191-58-171.ap.ngrok.io/repository/raw-hosted/phpapp/phpapp-${BUILD_ID}.zip --output phpapp-${BUILD_ID}.zip'
     sh 'unzip -o phpapp-${BUILD_ID}.zip -d current'
+    sh 'mv phpapp-${BUILD_ID}.zip backup/phpapp-${BUILD_ID}.zip'
     sh 'docker build -t phpapp .'
-    sh 'docker rm -f phpapp'
+    sh 'docker rm -f phpapp_tmp'
+    sh 'docker rename phpapp phpapp_tmp'
     sh 'docker run -d --name phpapp -p 8888:80 phpapp'
 }
