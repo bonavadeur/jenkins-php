@@ -1,5 +1,5 @@
 <?php
 
-$version = 22;
+$version = 23;
 echo "<h2>Hello, this is version $version</h2>";
-http_response_code(404); exit;
+return false;
