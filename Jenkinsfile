@@ -33,8 +33,8 @@ node ('stagging-1') {
 
     sh 'docker rm -f phpapp_tmp phpapp'
     sh 'docker rmi -f phpapp:backup'
-    
     sh 'docker tag phpapp:latest phpapp:backup'
+    sh 'docker rmi -f phpapp:latest'
     sh 'docker build -t phpapp:latest .'
 
     sh 'docker run -d --name phpapp_tmp -p 8880:80 phpapp:backup'
